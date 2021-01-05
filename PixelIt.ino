@@ -82,9 +82,9 @@ ESP8266WebServer server(80);
 WebSocketsServer webSocket = WebSocketsServer(81);
 ESP8266HTTPUpdateServer httpUpdater;
 LightDependentResistor photocell(LDR_PIN, LDR_RESISTOR, LDR_PHOTOCELL);
-DHTesp dht;
-DFPlayerMini_Fast mp3Player;
-SoftwareSerial softSerial(D7, D8); // RX | TX
+//DHTesp dht;
+//DFPlayerMini_Fast mp3Player;
+//SoftwareSerial softSerial(D7, D8); // RX | TX
 
 // Matrix Vars
 int matrixtBrightness = 127;
@@ -143,14 +143,14 @@ int animateBMPFrameCount = 0;
 
 // Sensors Vars 
 uint sendLuxPrevMillis = 0;
-uint sendDHTPrevMillis = 0;
+//uint sendDHTPrevMillis = 0;
 uint sendInfoPrevMillis = 0;
 String OldGetMatrixInfo;
 String OldGetLuxSensor;
-String OldGetDHTSensor;
+//String OldGetDHTSensor;
 
 // MP3Player Vars
-String OldGetMP3PlayerInfo;
+//String OldGetMP3PlayerInfo;
 
 // Websoket Vars
 String websocketConnection[10];
@@ -480,11 +480,11 @@ void HandleGetLuxSensor()
 	server.send(200, "application/json", GetLuxSensor());
 }
 
-void HandleGetDHTSensor()
-{
-	server.sendHeader("Connection", "close");
-	server.send(200, "application/json", GetDHTSensor());
-}
+//void HandleGetDHTSensor()
+//{
+//	server.sendHeader("Connection", "close");
+//	server.send(200, "application/json", GetDHTSensor());
+//}
 
 void HandleGetMatrixInfo()
 {
